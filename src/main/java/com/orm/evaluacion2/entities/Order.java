@@ -1,5 +1,6 @@
 package com.orm.evaluacion2.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

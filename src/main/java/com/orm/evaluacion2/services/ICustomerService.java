@@ -1,18 +1,19 @@
 package com.orm.evaluacion2.services;
 
-import com.orm.evaluacion2.entities.Customer;
+import com.orm.evaluacion2.dtos.CustomerDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ICustomerService {
-    List<Customer> getAll();
+    List<CustomerDTO> getAll();
 
-    Customer save(Customer customer);
+    CustomerDTO save(CustomerDTO customer);
 
-    Optional<Customer> update(Customer customer, Long id);
+    Optional<CustomerDTO> update(CustomerDTO customer, Long id);
 
-    Optional<Customer> delete(Long id);
+    Optional<CustomerDTO> delete(Long id);
 
-    Optional<Customer> findById(Long id);
+    Optional<CustomerDTO> findById(Long id);
+
 }
