@@ -43,21 +43,94 @@ public class CustomerServiceImplementation implements ICustomerService {
 
     @Override
     public CustomerDTO save(CustomerDTO customer) {
-        return null;
+        try {
+            Customer newCustomer = new Customer();
+            newCustomer.setCustomerName(customer.getCustomerName());
+            newCustomer.setCustomerEmail(customer.getCustomerEmail());
+            newCustomer.setCustomerAddress(customer.getCustomerAddress());
+
+            return new CustomerDTO(
+                    customerRepository.save(newCustomer).getCustomerId(),
+                    customer.getCustomerName(),
+                    customer.getCustomerEmail(),
+                    customer.getCustomerAddress()
+            );
+
+        } catch (Exception ex) {
+            System.out.println("An error occurred in save Method of CustomerServiceImplementation: " + ex);
+            return null;
+        }
     }
 
     @Override
     public Optional<CustomerDTO> update(CustomerDTO customer, Long id) {
-        return Optional.empty();
+        try {
+            Optional<Customer> customerData = customerRepository.findById(id);
+
+            if (customerData.isPresent()) {
+                Customer updatedCustomer = customerData.get();
+                updatedCustomer.setCustomerName(customer.getCustomerName());
+                updatedCustomer.setCustomerEmail(customer.getCustomerEmail());
+                updatedCustomer.setCustomerAddress(customer.getCustomerAddress());
+
+                return Optional.of(new CustomerDTO(
+                        customerRepository.save(updatedCustomer).getCustomerId(),
+                        customer.getCustomerName(),
+                        customer.getCustomerEmail(),
+                        customer.getCustomerAddress()
+                ));
+            }
+
+            return Optional.empty();
+
+        } catch (Exception ex) {
+            System.out.println("An error occurred in update Method of CustomerServiceImplementation: " + ex);
+            return Optional.empty();
+        }
     }
 
     @Override
     public Optional<CustomerDTO> delete(Long id) {
-        return Optional.empty();
+        try {
+            Optional<Customer> customer = customerRepository.findById(id);
+
+            if (customer.isPresent()) {
+                customerRepository.deleteById(id);
+                return Optional.of(new CustomerDTO(
+                        customer.get().getCustomerId(),
+                        customer.get().getCustomerName(),
+                        customer.get().getCustomerEmail(),
+                        customer.get().getCustomerAddress()
+                ));
+            }
+
+            return Optional.empty();
+
+        } catch (Exception ex) {
+            System.out.println("An error occurred in delete Method of CustomerServiceImplementation: " + ex);
+            return Optional.empty();
+        }
     }
 
     @Override
     public Optional<CustomerDTO> findById(Long id) {
-        return Optional.empty();
+        try {
+            Optional<Customer> customer = customerRepository.findById(id);
+
+            if (customer.isPresent()) {
+                return Optional.of(new CustomerDTO(
+                        customer.get().getCustomerId(),
+                        customer.get().getCustomerName(),
+                        customer.get().getCustomerEmail(),
+                        customer.get().getCustomerAddress()
+                ));
+            }
+
+            return Optional.empty();
+
+        } catch (Exception ex) {
+            System.out.println("An error occurred in findById Method of CustomerServiceImplementation: " + ex);
+            return Optional.empty();
+        }
     }
 }
