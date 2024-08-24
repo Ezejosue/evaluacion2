@@ -1,18 +1,18 @@
 package com.orm.evaluacion2.services;
 
-import com.orm.evaluacion2.entities.Category;
+import com.orm.evaluacion2.dtos.CategoryDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface ICategoryService {
-    List<Category> getAll();
+    List<CategoryDTO> getAll();
 
-    Category save(Category category);
+    CategoryDTO save(CategoryDTO category);
 
-    Optional<Category> update(Category category, Long id);
+    Optional<CategoryDTO> update(CategoryDTO category, Long id);
 
-    Optional<Category> delete(Long id);
+    Optional<CategoryDTO> delete(Long id);
 
-    Optional<Category> findById(Long id);
+    Optional<CategoryDTO> findById(Long id);
 }

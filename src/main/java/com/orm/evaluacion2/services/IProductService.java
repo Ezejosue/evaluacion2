@@ -1,18 +1,18 @@
 package com.orm.evaluacion2.services;
 
-import com.orm.evaluacion2.entities.Product;
+import com.orm.evaluacion2.dtos.ProductDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IProductService {
-    List<Product> getAll();
+    List<ProductDTO> getAll();
 
-    Product save(Product product);
+    ProductDTO save(ProductDTO product);
 
-    Optional<Product> update(Product product, Long id);
+    Optional<ProductDTO> update(ProductDTO product, Long id);
 
-    Optional<Product> delete(Long id);
+    Optional<ProductDTO> delete(Long id);
 
-    Optional<Product> findById(Long id);
+    Optional<ProductDTO> findById(Long id);
 }

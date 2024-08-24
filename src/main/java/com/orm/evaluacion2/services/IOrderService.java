@@ -1,18 +1,18 @@
 package com.orm.evaluacion2.services;
 
-import com.orm.evaluacion2.entities.Order;
+import com.orm.evaluacion2.dtos.OrderDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IOrderService {
-    List<Order> getAll();
+    List<OrderDTO> getAll();
 
-    Order save(Order order);
+    OrderDTO save(OrderDTO order);
 
-    Optional<Order> update(Order order, Long id);
+    Optional<OrderDTO> update(OrderDTO order, Long id);
 
-    Optional<Order> delete(Long id);
+    Optional<OrderDTO> delete(Long id);
 
-    Optional<Order> findById(Long id);
+    Optional<OrderDTO> findById(Long id);
 }

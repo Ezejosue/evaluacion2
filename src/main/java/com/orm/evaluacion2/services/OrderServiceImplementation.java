@@ -1,5 +1,6 @@
 package com.orm.evaluacion2.services;
 
+import com.orm.evaluacion2.dtos.OrderDTO;
 import com.orm.evaluacion2.entities.Order;
 import com.orm.evaluacion2.repositories.IOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,27 +16,27 @@ public class OrderServiceImplementation implements IOrderService {
     private IOrderRepository orderRepository;
 
     @Override
-    public List<Order> getAll() {
+    public List<OrderDTO> getAll() {
         return List.of();
     }
 
     @Override
-    public Order save(Order order) {
+    public OrderDTO save(OrderDTO order) {
         return null;
     }
 
     @Override
-    public Optional<Order> update(Order order, Long id) {
+    public Optional<OrderDTO> update(OrderDTO order, Long id) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<Order> delete(Long id) {
+    public Optional<OrderDTO> delete(Long id) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<Order> findById(Long id) {
+    public Optional<OrderDTO> findById(Long id) {
         return Optional.empty();
     }
 }

@@ -1,18 +1,18 @@
 package com.orm.evaluacion2.services;
 
-import com.orm.evaluacion2.entities.Delivery;
+import com.orm.evaluacion2.dtos.DeliveryDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface IDeliveryService {
-    List<Delivery> getAll();
+    List<DeliveryDTO> getAll();
 
-    Delivery save(Delivery delivery);
+    DeliveryDTO save(DeliveryDTO delivery);
 
-    Optional<Delivery> update(Delivery delivery, Long id);
+    Optional<DeliveryDTO> update(DeliveryDTO delivery, Long id);
 
-    Optional<Delivery> delete(Long id);
+    Optional<DeliveryDTO> delete(Long id);
 
-    Optional<Delivery> findById(Long id);
+    Optional<DeliveryDTO> findById(Long id);
 }
