@@ -2,6 +2,9 @@ package com.orm.evaluacion2.controllers;
 
 import com.orm.evaluacion2.dtos.CategoryDTO;
 import com.orm.evaluacion2.services.CategoryServiceImplementation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,11 +15,16 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/categories")
+@Tag(name = "Category")
 public class CategoryController {
 
     @Autowired
     private CategoryServiceImplementation categoryService;
 
+    @Operation(summary = "Get all categories", description = "Get all categories from the database")
+    @ApiResponse(responseCode = "200", description = "Categories found")
+    @ApiResponse(responseCode = "204", description = "No content")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
     @GetMapping("/getAll")
     ResponseEntity<?> getAll() {
         try {
@@ -32,6 +40,9 @@ public class CategoryController {
         }
     }
 
+    @Operation(summary = "Save a category", description = "Save a category in the database")
+    @ApiResponse(responseCode = "201", description = "Category saved")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
     @PostMapping("/save")
     ResponseEntity<?> save(@Validated @RequestBody CategoryDTO category) {
         try {
@@ -44,6 +55,9 @@ public class CategoryController {
         }
     }
 
+    @Operation(summary = "Update a category", description = "Update a category in the database")
+    @ApiResponse(responseCode = "200", description = "Category updated")
+    @ApiResponse(responseCode = "404", description = "Category not found")
     @PutMapping("/update/{id}")
     ResponseEntity<?> update(@Validated @RequestBody CategoryDTO category, @PathVariable Long id) {
         try {
@@ -59,6 +73,10 @@ public class CategoryController {
         }
     }
 
+    @Operation(summary = "Delete a category", description = "Delete a category in the database")
+    @ApiResponse(responseCode = "200", description = "Category deleted")
+    @ApiResponse(responseCode = "404", description = "Category not found")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
     @DeleteMapping("/delete/{id}")
     ResponseEntity<?> delete(@PathVariable Long id) {
         try {
@@ -74,6 +92,10 @@ public class CategoryController {
         }
     }
 
+    @Operation(summary = "Find a category by id", description = "Find a category by id in the database")
+    @ApiResponse(responseCode = "200", description = "Category found")
+    @ApiResponse(responseCode = "404", description = "Category not found")
+    @ApiResponse(responseCode = "500", description = "Internal server error")
     @GetMapping("/findById/{id}")
     ResponseEntity<?> findById(@PathVariable Long id) {
         try {

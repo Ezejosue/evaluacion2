@@ -1,5 +1,8 @@
 package com.orm.evaluacion2.dtos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProductDTO {
     private Long productId;
     private String productName;
@@ -17,11 +20,11 @@ public class ProductDTO {
         this.categoryName = categoryName;
     }
 
-    public ProductDTO(Long productId, String productName, Long categoryId) {
+
+    public ProductDTO(Long productId, String productName) {
         this();
         this.productId = productId;
         this.productName = productName;
-        this.categoryId = categoryId;
     }
 
     public Long getCategoryId() {
