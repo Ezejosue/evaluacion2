@@ -1,10 +1,8 @@
 package com.orm.evaluacion2.dtos;
 
-import com.orm.evaluacion2.entities.Product;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class OrderDTO {
@@ -13,18 +11,20 @@ public class OrderDTO {
     private Long customerId;
     private Long deliveryId;
     private List<ProductDTO> products;
+    private Double total;
 
     public OrderDTO() {
         this.products = new ArrayList<>();
     }
 
-    public OrderDTO(Long orderId, LocalDate orderDate, Long customerId, Long deliveryId, List<ProductDTO> products) {
+    public OrderDTO(Long orderId, LocalDate orderDate, Long customerId, Long deliveryId, List<ProductDTO> products, Double total) {
         this();
         this.orderId = orderId;
         this.orderDate = orderDate;
         this.customerId = customerId;
         this.deliveryId = deliveryId;
         this.products = products;
+        this.total = total;
     }
 
 
@@ -68,6 +68,14 @@ public class OrderDTO {
         this.products = products;
     }
 
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
+
     @Override
     public String toString() {
         return "OrderDTO{" +
@@ -78,6 +86,7 @@ public class OrderDTO {
                 ", products=" + products +
                 '}';
     }
+
 }
 
 

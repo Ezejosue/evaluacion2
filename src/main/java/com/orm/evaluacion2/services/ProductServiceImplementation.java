@@ -40,6 +40,7 @@ public class ProductServiceImplementation implements IProductService {
                         return new ProductDTO(
                                 product.getProductId(),
                                 product.getProductName(),
+                                product.getPrice(),
                                 categoryId,
                                 categoryName
                         );
@@ -73,6 +74,7 @@ public class ProductServiceImplementation implements IProductService {
             return new ProductDTO(
                     savedProduct.getProductId(),
                     savedProduct.getProductName(),
+                    savedProduct.getPrice(),
                     savedProduct.getCategory().getCategoryId(),
                     savedProduct.getCategory().getCategoryName()
             );
@@ -109,6 +111,7 @@ public class ProductServiceImplementation implements IProductService {
             return Optional.of(new ProductDTO(
                     updatedProduct.getProductId(),
                     updatedProduct.getProductName(),
+                    updatedProduct.getPrice(),
                     updatedProduct.getCategory().getCategoryId(),
                     updatedProduct.getCategory().getCategoryName()
             ));
@@ -137,6 +140,7 @@ public class ProductServiceImplementation implements IProductService {
             return Optional.of(new ProductDTO(
                     product.getProductId(),
                     product.getProductName(),
+                    product.getPrice(),
                     product.getCategory().getCategoryId(),
                     product.getCategory().getCategoryName()
             ));
@@ -162,6 +166,7 @@ public class ProductServiceImplementation implements IProductService {
             return Optional.of(new ProductDTO(
                     product.getProductId(),
                     product.getProductName(),
+                    product.getPrice(),
                     product.getCategory().getCategoryId(),
                     product.getCategory().getCategoryName()
             ));

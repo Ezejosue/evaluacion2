@@ -39,8 +39,9 @@ public class OrderServiceImplementation implements IOrderService {
                             order.getCustomer().getCustomerId(),
                             order.getDelivery().getDeliveryId(),
                             order.getProducts().stream()
-                                    .map(product -> new ProductDTO(product.getProductId(), product.getProductName()))
-                                    .collect(Collectors.toList())
+                                    .map(product -> new ProductDTO(product.getProductId(), product.getProductName(), product.getPrice()))
+                                    .collect(Collectors.toList()),
+                            order.calculateTotal()
                     ))
                     .collect(Collectors.toList());
 
@@ -77,8 +78,9 @@ public class OrderServiceImplementation implements IOrderService {
                     savedOrder.getCustomer().getCustomerId(),
                     savedOrder.getDelivery().getDeliveryId(),
                     savedOrder.getProducts().stream()
-                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName()))
-                            .collect(Collectors.toList())
+                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName(), product.getPrice()))
+                            .collect(Collectors.toList()),
+                    savedOrder.calculateTotal()
             );
 
         } catch (Exception ex) {
@@ -121,8 +123,9 @@ public class OrderServiceImplementation implements IOrderService {
                     updatedOrder.getCustomer().getCustomerId(),
                     updatedOrder.getDelivery().getDeliveryId(),
                     updatedOrder.getProducts().stream()
-                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName()))
-                            .collect(Collectors.toList())
+                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName(), product.getPrice()))
+                            .collect(Collectors.toList()),
+                    updatedOrder.calculateTotal()
             ));
 
         } catch (Exception ex) {
@@ -149,8 +152,9 @@ public class OrderServiceImplementation implements IOrderService {
                     order.get().getCustomer().getCustomerId(),
                     order.get().getDelivery().getDeliveryId(),
                     order.get().getProducts().stream()
-                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName()))
-                            .collect(Collectors.toList())
+                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName(), product.getPrice()))
+                            .collect(Collectors.toList()),
+                    order.get().calculateTotal()
             ));
         } catch (Exception ex) {
             System.out.println("An error occurred in delete method of order service: " + ex.getMessage());
@@ -174,8 +178,9 @@ public class OrderServiceImplementation implements IOrderService {
                     order.get().getCustomer().getCustomerId(),
                     order.get().getDelivery().getDeliveryId(),
                     order.get().getProducts().stream()
-                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName()))
-                            .collect(Collectors.toList())
+                            .map(product -> new ProductDTO(product.getProductId(), product.getProductName(), product.getPrice()))
+                            .collect(Collectors.toList()),
+                    order.get().calculateTotal()
             ));
         } catch (Exception ex) {
             System.out.println("An error occurred in findById method of order service: " + ex.getMessage());

@@ -14,6 +14,8 @@ public class Product {
 
     private String productName;
 
+    private Double price;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
@@ -25,9 +27,10 @@ public class Product {
         this.orders = new ArrayList<>();
     }
 
-    public Product(String productName, Category category, List<Order> orders) {
+    public Product(String productName, Double price, Category category, List<Order> orders) {
         this();
         this.productName = productName;
+        this.price = price;
         this.category = category;
         this.orders = orders;
     }
@@ -48,6 +51,14 @@ public class Product {
         this.productName = productName;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public Category getCategory() {
         return category;
     }
@@ -64,11 +75,13 @@ public class Product {
         this.orders = orders;
     }
 
+
     @Override
     public String toString() {
         return "Product{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
+                ", price=" + price +
                 ", category=" + category +
                 ", orders=" + orders +
                 '}';

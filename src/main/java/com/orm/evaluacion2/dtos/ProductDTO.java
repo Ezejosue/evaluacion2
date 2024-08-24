@@ -6,25 +6,28 @@ import java.util.List;
 public class ProductDTO {
     private Long productId;
     private String productName;
+    private Double price;
     private Long categoryId;
     private String categoryName;
 
     public ProductDTO() {
     }
 
-    public ProductDTO(Long productId, String productName, Long categoryId, String categoryName) {
+    public ProductDTO(Long productId, String productName, Double price, Long categoryId, String categoryName) {
         this();
         this.productId = productId;
         this.productName = productName;
+        this.price = price;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
     }
 
 
-    public ProductDTO(Long productId, String productName) {
+    public ProductDTO(Long productId, String productName, Double price) {
         this();
         this.productId = productId;
         this.productName = productName;
+        this.price = price;
     }
 
     public Long getCategoryId() {
@@ -59,11 +62,20 @@ public class ProductDTO {
         this.productName = productName;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "ProductDTO{" +
                 "productId=" + productId +
                 ", productName='" + productName + '\'' +
+                ", price=" + price +
                 ", categoryId=" + categoryId +
                 ", categoryName='" + categoryName + '\'' +
                 '}';

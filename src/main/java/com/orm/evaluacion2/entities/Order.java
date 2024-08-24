@@ -1,6 +1,7 @@
 package com.orm.evaluacion2.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.orm.evaluacion2.dtos.ProductDTO;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -80,6 +81,12 @@ public class Order {
 
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    public Double calculateTotal() {
+        return products.stream()
+                .mapToDouble(Product::getPrice)
+                .sum();
     }
 
     @Override

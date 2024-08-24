@@ -1,5 +1,7 @@
-CREATE DATABASE IF NOT EXISTS db_evualacion2;
-USE db_evualacion2;
+CREATE
+DATABASE IF NOT EXISTS db_evualacion2;
+USE
+db_evualacion2;
 
 INSERT INTO customers (customer_name, customer_email, customer_address)
 VALUES ('John Doe', 'johndoe@example.com', '123 Main St'),
@@ -16,12 +18,12 @@ VALUES ('Electronics', 'Gadgets'),
        ('Furniture', 'Home'),
        ('Toys', 'Children');
 
-INSERT INTO products (product_name, category_id)
-VALUES ('Smartphone', 1),
-       ('Laptop', 1),
-       ('Novel', 2),
-       ('T-shirt', 3),
-       ('Sofa', 4);
+INSERT INTO products (product_name, category_id, price)
+VALUES ('Smartphone', 1, 1000),
+       ('Laptop', 1, 2000),
+       ('Novel', 2, 20),
+       ('T-shirt', 3, 10),
+       ('Sofa', 4, 500);
 
 INSERT INTO deliveries (type, status)
 VALUES ('Standard', 'In Transit'),
