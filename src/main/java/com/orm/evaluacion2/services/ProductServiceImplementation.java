@@ -105,6 +105,7 @@ public class ProductServiceImplementation implements IProductService {
             Product productEntity = productOptional.get();
             productEntity.setProductName(product.getProductName());
             productEntity.setCategory(categoryOptional.get());
+            productEntity.setPrice(product.getPrice());
 
             Product updatedProduct = productRepository.save(productEntity);
 
